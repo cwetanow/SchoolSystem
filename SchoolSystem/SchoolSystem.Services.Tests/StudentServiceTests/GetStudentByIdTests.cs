@@ -3,6 +3,7 @@ using NUnit.Framework;
 using SchoolSystem.Data.Contracts;
 using SchoolSystem.Models;
 using SchoolSystem.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,7 +16,17 @@ namespace SchoolSystem.Services.Tests.StudentServiceTests
 		public void TestGetStudentById_ShouldCallRepositoryAll(int id)
 		{
 			// Arrange
+			var student = new Student("Foo", "Bar", Grade.Eighth)
+			{
+				Id = id
+			};
+
+			var students = new List<Student>() { student };
+
 			var mockedRepository = new Mock<IRepository<Student>>();
+			mockedRepository.Setup(r => r.All)
+				.Returns(students.AsQueryable());
+
 			var mockedUnitOfWork = new Mock<IUnitOfWork>();
 
 			var service = new StudentService(mockedRepository.Object, mockedUnitOfWork.Object);
@@ -25,6 +36,19 @@ namespace SchoolSystem.Services.Tests.StudentServiceTests
 
 			// Assert
 			mockedRepository.Verify(r => r.All, Times.Once);
+		}
+
+		[TestCase(1)]
+		public void TestGetStudentById_NoStudent_ShouldThrowArgumentException(int id)
+		{
+			// Arrange
+			var mockedRepository = new Mock<IRepository<Student>>();
+			var mockedUnitOfWork = new Mock<IUnitOfWork>();
+
+			var service = new StudentService(mockedRepository.Object, mockedUnitOfWork.Object);
+
+			// Act, Assert
+			Assert.Throws<ArgumentException>(() => service.GetStudentById(id));
 		}
 
 		[TestCase(1)]

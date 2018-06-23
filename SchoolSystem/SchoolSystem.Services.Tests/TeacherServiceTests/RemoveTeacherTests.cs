@@ -3,6 +3,7 @@ using NUnit.Framework;
 using SchoolSystem.Data.Contracts;
 using SchoolSystem.Models;
 using SchoolSystem.Models.Enums;
+using System;
 
 namespace SchoolSystem.Services.Tests.TeacherServiceTests
 {
@@ -13,7 +14,12 @@ namespace SchoolSystem.Services.Tests.TeacherServiceTests
 		public void TestRemoveTeacher_ShouldCallRepositoryGetById(int id)
 		{
 			// Arrange
+			var teacher = new Teacher("Foo", "Bar", Subject.Bulgarian);
+
 			var mockedRepository = new Mock<IRepository<Teacher>>();
+			mockedRepository.Setup(r => r.GetById(It.IsAny<object>()))
+				.Returns(teacher);
+
 			var mockedUnitOfWork = new Mock<IUnitOfWork>();
 
 			var service = new TeacherService(mockedRepository.Object, mockedUnitOfWork.Object);
@@ -26,7 +32,7 @@ namespace SchoolSystem.Services.Tests.TeacherServiceTests
 		}
 
 		[TestCase(1)]
-		public void TestRemoveTeacher_NoTeacherFound_ShouldNotCallRepositoryDelete(int id)
+		public void TestRemoveTeacher_NoTeacherFound_ShouldThrowArgumentException(int id)
 		{
 			// Arrange
 			var mockedRepository = new Mock<IRepository<Teacher>>();
@@ -34,11 +40,8 @@ namespace SchoolSystem.Services.Tests.TeacherServiceTests
 
 			var service = new TeacherService(mockedRepository.Object, mockedUnitOfWork.Object);
 
-			// Act
-			service.RemoveTeacher(id);
-
-			// Assert
-			mockedRepository.Verify(r => r.Delete(It.IsAny<Teacher>()), Times.Never);
+			// Act, Assert
+			Assert.Throws<ArgumentException>(() => service.RemoveTeacher(id));
 		}
 
 		[TestCase(1)]
