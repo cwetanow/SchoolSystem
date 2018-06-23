@@ -67,6 +67,10 @@ namespace SchoolSystem.CLI
 				.ToFactory()
 				.InSingletonScope();
 
+			this.Bind<IMarkFactory>()
+				.ToFactory()
+				.InSingletonScope();
+
 			// Providers
 			this.Bind<IReader>()
 				.To<ConsoleReaderWriterProvider>()
