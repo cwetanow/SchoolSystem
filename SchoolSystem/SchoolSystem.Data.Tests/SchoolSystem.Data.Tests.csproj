@@ -12,5 +12,8 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\SchoolSystem.Data\SchoolSystem.Data.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="RepositoryTests\" />
+	</ItemGroup>
 
 </Project>
