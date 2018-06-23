@@ -13,6 +13,7 @@ namespace SchoolSystem.Commands.Tests.CreateStudentTests
 		[Test]
 		public void TestExecute_PassValidParameters_ShouldCallFactoryCreateStudentCorrectly()
 		{
+			// Arrange
 			var parameters = new string[] { "Pesho", " Peshev", "11" };
 			var student = new Student("Foo", "Bar", Grade.Eighth);
 
@@ -25,15 +26,17 @@ namespace SchoolSystem.Commands.Tests.CreateStudentTests
 
 			var command = new CreateStudentCommand(mockedFactory.Object, mockedService.Object);
 
+			// Act
 			command.Execute(parameters);
 
-			mockedFactory.Verify(x => x.CreateStudent(parameters[0], parameters[1], (Grade)int.Parse(parameters[2])),
-				Times.Once);
+			// Assert
+			mockedFactory.Verify(x => x.CreateStudent(parameters[0], parameters[1], (Grade)int.Parse(parameters[2])), Times.Once);
 		}
 
 		[Test]
 		public void TestExecute_PassValidParameters_ShouldCallServiceAddStudentCorrectly()
 		{
+			// Arrange
 			var parameters = new string[] { "Pesho", " Peshev", "11" };
 
 			var student = new Student("Foo", "Bar", Grade.Eighth);
@@ -47,10 +50,11 @@ namespace SchoolSystem.Commands.Tests.CreateStudentTests
 
 			var command = new CreateStudentCommand(mockedFactory.Object, mockedService.Object);
 
+			// Act
 			command.Execute(parameters);
 
-			mockedService.Verify(x => x.AddStudent(student),
-				Times.Once);
+			// Assert
+			mockedService.Verify(x => x.AddStudent(student), Times.Once);
 		}
 	}
 }
