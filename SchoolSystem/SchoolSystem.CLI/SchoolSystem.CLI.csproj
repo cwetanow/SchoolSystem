@@ -6,6 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\SchoolSystem.Core\SchoolSystem.Core.csproj" />
 		<ProjectReference Include="..\SchoolSystem.Data\SchoolSystem.Data.csproj" />
 	</ItemGroup>
 

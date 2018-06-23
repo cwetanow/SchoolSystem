@@ -4,6 +4,12 @@ using SchoolSystem.Data;
 using SchoolSystem.Data.Contracts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using SchoolSystem.Providers.Contracts;
+using SchoolSystem.Providers;
+using SchoolSystem.Commands;
+using Ninject.Extensions.Factory;
+using SchoolSystem.Core.Contracts;
+using SchoolSystem.Core;
 
 namespace SchoolSystem.CLI
 {
@@ -18,18 +24,43 @@ namespace SchoolSystem.CLI
 
 		public override void Load()
 		{
-			this.Kernel.Bind<IDbContext>()
+			// Commands
+
+			// Factories
+			this.Bind<ICommandFactory>()
+				.ToFactory()
+				.InSingletonScope();
+
+			// Providers
+			this.Bind<IReader>()
+				.To<ConsoleReaderWriterProvider>()
+				.InSingletonScope();
+
+			this.Bind<IWriter>()
+				.To<ConsoleReaderWriterProvider>()
+				.InSingletonScope();
+
+			this.Bind<IParser>()
+				.To<CommandParserProvider>()
+				.InSingletonScope();
+
+			// Data
+			this.Bind<IDbContext>()
 				.To<SchoolSystemDbContext>()
 				.InThreadScope()
 				.WithConstructorArgument("options", (context) => this.GetDbContextOptions(context));
 
-			this.Kernel.Bind(typeof(IRepository<>))
+			this.Bind(typeof(IRepository<>))
 				.To(typeof(EfRepository<>))
 				.InThreadScope();
 
-			this.Kernel.Bind<IUnitOfWork>()
+			this.Bind<IUnitOfWork>()
 				.To<UnitOfWork>()
 				.InThreadScope();
+
+			// Core
+			this.Bind<IEngine>()
+				.To<Engine>();
 		}
 
 		private DbContextOptions GetDbContextOptions(IContext context)
