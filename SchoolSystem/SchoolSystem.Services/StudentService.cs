@@ -20,10 +20,8 @@ namespace SchoolSystem.Services
 			this.unitOfWork = unitOfWork;
 		}
 
-		public void AddMark(int studentId, Mark mark)
+		public void AddMark(Student student, Mark mark)
 		{
-			var student = this.GetStudentById(studentId);
-
 			if (student.Marks.Count >= MaxStudentMarksCount)
 			{
 				throw new ArgumentException($"The student's marks count exceed the maximum count of {MaxStudentMarksCount} marks");

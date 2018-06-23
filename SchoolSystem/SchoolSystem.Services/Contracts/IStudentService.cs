@@ -10,6 +10,6 @@ namespace SchoolSystem.Services.Contracts
 
 		Student GetStudentById(int studentId);
 
-		void AddMark(int studentId, Mark mark);
+		void AddMark(Student student, Mark mark);
 	}
 }
