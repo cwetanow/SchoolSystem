@@ -4,7 +4,7 @@ using SchoolSystem.Models;
 
 namespace SchoolSystem.Data
 {
-	class SchoolSystemDbContext : DbContext, IDbContext
+	public class SchoolSystemDbContext : DbContext, IDbContext
 	{
 		public SchoolSystemDbContext(DbContextOptions options)
 			   : base(options)
