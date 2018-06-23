@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.CLI", "SchoolSystem.CLI\SchoolSystem.CLI.csproj", "{B8B97896-EDF7-49FF-B24A-F8D21B2AF716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolSystem.CLI", "SchoolSystem.CLI\SchoolSystem.CLI.csproj", "{B8B97896-EDF7-49FF-B24A-F8D21B2AF716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Models", "SchoolSystem.Models\SchoolSystem.Models.csproj", "{23A1C486-DB5B-40DF-9F82-4550AED2872A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolSystem.Models", "SchoolSystem.Models\SchoolSystem.Models.csproj", "{23A1C486-DB5B-40DF-9F82-4550AED2872A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Data", "SchoolSystem.Data\SchoolSystem.Data.csproj", "{42A95044-6EC3-454A-A593-C3B65A4041D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Data.Tests", "SchoolSystem.Data.Tests\SchoolSystem.Data.Tests.csproj", "{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{23A1C486-DB5B-40DF-9F82-4550AED2872A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23A1C486-DB5B-40DF-9F82-4550AED2872A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23A1C486-DB5B-40DF-9F82-4550AED2872A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42A95044-6EC3-454A-A593-C3B65A4041D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A95044-6EC3-454A-A593-C3B65A4041D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A95044-6EC3-454A-A593-C3B65A4041D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A95044-6EC3-454A-A593-C3B65A4041D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,3 +9,4 @@ script:
   - cd SchoolSystem
   - dotnet restore
   - dotnet build
+  - dotnet test SchoolSystem.Data.Tests/
