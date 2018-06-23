@@ -8,7 +8,7 @@ using SchoolSystem.Services.Contracts;
 namespace SchoolSystem.Commands.Tests.CreateStudentTests
 {
 	[TestFixture]
-	class ExecuteTests
+	public class ExecuteTests
 	{
 		[Test]
 		public void TestExecute_PassValidParameters_ShouldCallFactoryCreateStudentCorrectly()
