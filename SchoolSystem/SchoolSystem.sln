@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Framework", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Commands", "SchoolSystem.Commands\SchoolSystem.Commands.csproj", "{F84071F0-35C3-4AD7-B83C-0CD3A03282CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Factories", "SchoolSystem.Factories\SchoolSystem.Factories.csproj", "{DC2040AA-26DB-484F-A9FB-98CB515FF384}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Providers", "SchoolSystem.Providers\SchoolSystem.Providers.csproj", "{C95127B4-56EA-4FE7-BBF7-DB97537B2463}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{F84071F0-35C3-4AD7-B83C-0CD3A03282CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F84071F0-35C3-4AD7-B83C-0CD3A03282CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F84071F0-35C3-4AD7-B83C-0CD3A03282CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC2040AA-26DB-484F-A9FB-98CB515FF384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC2040AA-26DB-484F-A9FB-98CB515FF384}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC2040AA-26DB-484F-A9FB-98CB515FF384}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC2040AA-26DB-484F-A9FB-98CB515FF384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C95127B4-56EA-4FE7-BBF7-DB97537B2463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C95127B4-56EA-4FE7-BBF7-DB97537B2463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C95127B4-56EA-4FE7-BBF7-DB97537B2463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C95127B4-56EA-4FE7-BBF7-DB97537B2463}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
