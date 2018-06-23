@@ -7,5 +7,7 @@ namespace SchoolSystem.Services.Contracts
 		int AddTeacher(Teacher teacher);
 
 		void RemoveTeacher(int teacherId);
+
+		Teacher GetTeacherById(int teacherId);
 	}
 }

@@ -2,12 +2,15 @@
 using SchoolSystem.Data.Contracts;
 using SchoolSystem.Models;
 using SchoolSystem.Services.Contracts;
+using System;
 using System.Linq;
 
 namespace SchoolSystem.Services
 {
 	public class StudentService : IStudentService
 	{
+		public const int MaxStudentMarksCount = 20;
+
 		private readonly IRepository<Student> repository;
 		private readonly IUnitOfWork unitOfWork;
 
@@ -15,6 +18,19 @@ namespace SchoolSystem.Services
 		{
 			this.repository = repository;
 			this.unitOfWork = unitOfWork;
+		}
+
+		public void AddMark(Student student, Mark mark)
+		{
+			if (student.Marks.Count >= MaxStudentMarksCount)
+			{
+				throw new ArgumentException($"The student's marks count exceed the maximum count of {MaxStudentMarksCount} marks");
+			}
+
+			student.Marks.Add(mark);
+
+			this.repository.Update(student);
+			this.unitOfWork.Commit();
 		}
 
 		public int AddStudent(Student student)

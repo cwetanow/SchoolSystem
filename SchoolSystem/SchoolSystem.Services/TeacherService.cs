@@ -23,6 +23,11 @@ namespace SchoolSystem.Services
 			return teacher.Id;
 		}
 
+		public Teacher GetTeacherById(int teacherId)
+		{
+			return this.repository.GetById(teacherId);
+		}
+
 		public void RemoveTeacher(int teacherId)
 		{
 			var teacher = this.repository.GetById(teacherId);
