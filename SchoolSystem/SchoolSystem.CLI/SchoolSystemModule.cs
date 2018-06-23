@@ -24,7 +24,9 @@ namespace SchoolSystem.CLI
 		private const string CreateStudentCommandName = "CreateStudent";
 		private const string RemoveStudentCommandName = "RemoveStudent";
 		private const string StudentListMarksCommandName = "StudentListMarks";
+
 		private const string CreateTeacherCommandName = "CreateTeacher";
+		private const string RemoveTeacherCommandName = "RemoveTeacher";
 
 		private readonly IConfigurationRoot configuration;
 
@@ -48,7 +50,9 @@ namespace SchoolSystem.CLI
 			this.Bind<ICommand>().To<CreateStudentCommand>().Named(CreateStudentCommandName);
 			this.Bind<ICommand>().To<RemoveStudentCommand>().Named(RemoveStudentCommandName);
 			this.Bind<ICommand>().To<StudentListMarksCommand>().Named(StudentListMarksCommandName);
+
 			this.Bind<ICommand>().To<CreateTeacherCommand>().Named(CreateTeacherCommandName);
+			this.Bind<ICommand>().To<RemoveTeacherCommand>().Named(RemoveTeacherCommandName);
 
 			// Factories
 			this.Bind<ICommandFactory>()
