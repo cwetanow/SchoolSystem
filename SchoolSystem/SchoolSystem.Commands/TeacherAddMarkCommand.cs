@@ -1,11 +1,12 @@
-﻿using SchoolSystem.Factories;
+﻿using SchoolSystem.Commands.Contracts;
+using SchoolSystem.Factories;
 using SchoolSystem.Services.Contracts;
 using System;
 using System.Collections.Generic;
 
 namespace SchoolSystem.Commands
 {
-	public class TeacherAddMarkCommand
+	public class TeacherAddMarkCommand : ICommand
 	{
 		private readonly IMarkFactory markFactory;
 		private readonly IStudentService studentService;
