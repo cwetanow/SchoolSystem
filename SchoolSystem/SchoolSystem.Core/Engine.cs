@@ -42,5 +42,10 @@ namespace SchoolSystem.Core
 				}
 			}
 		}
+
+		private void ProcessCommand(string commandAsString)
+		{
+
+		}
 	}
 }
