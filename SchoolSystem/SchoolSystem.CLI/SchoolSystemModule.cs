@@ -24,6 +24,7 @@ namespace SchoolSystem.CLI
 		private const string CreateStudentCommandName = "CreateStudent";
 		private const string RemoveStudentCommandName = "RemoveStudent";
 		private const string StudentListMarksCommandName = "StudentListMarks";
+		private const string CreateTeacherCommandName = "CreateTeacher";
 
 		private readonly IConfigurationRoot configuration;
 
@@ -47,6 +48,7 @@ namespace SchoolSystem.CLI
 			this.Bind<ICommand>().To<CreateStudentCommand>().Named(CreateStudentCommandName);
 			this.Bind<ICommand>().To<RemoveStudentCommand>().Named(RemoveStudentCommandName);
 			this.Bind<ICommand>().To<StudentListMarksCommand>().Named(StudentListMarksCommandName);
+			this.Bind<ICommand>().To<CreateTeacherCommand>().Named(CreateTeacherCommandName);
 
 			// Factories
 			this.Bind<ICommandFactory>()
@@ -54,6 +56,10 @@ namespace SchoolSystem.CLI
 				.InSingletonScope();
 
 			this.Bind<IStudentFactory>()
+				.ToFactory()
+				.InSingletonScope();
+
+			this.Bind<ITeacherFactory>()
 				.ToFactory()
 				.InSingletonScope();
 
@@ -87,6 +93,10 @@ namespace SchoolSystem.CLI
 			// Services
 			this.Bind<IStudentService>()
 				.To<StudentService>()
+				.InThreadScope();
+
+			this.Bind<ITeacherService>()
+				.To<TeacherService>()
 				.InThreadScope();
 
 			// Core
