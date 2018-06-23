@@ -3,23 +3,22 @@ using System.Linq;
 using System.Text;
 
 using SchoolSystem.Models.Abstractions;
-using SchoolSystem.Models.Contracts;
 using SchoolSystem.Models.Enums;
 
 namespace SchoolSystem.Models
 {
-    public class Student : Person, IStudent
+    public class Student : Person
     {
         public Student(string firstName, string lastName, Grade grade)
             : base(firstName, lastName)
         {
             this.Grade = grade;
-            this.Marks = new List<IMark>();
+            this.Marks = new List<Mark>();
         }
 
         public Grade Grade { get; set; }
 
-        public IList<IMark> Marks { get; private set; }
+        public IList<Mark> Marks { get; private set; }
 
         public string ListMarks()
         {
