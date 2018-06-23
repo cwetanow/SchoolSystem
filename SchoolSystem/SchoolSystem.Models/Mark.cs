@@ -12,6 +12,11 @@ namespace SchoolSystem.Models
 
 		private float value;
 
+		public Mark()
+		{
+
+		}
+
 		public Mark(Subject subject, float value)
 		{
 			this.Subject = subject;

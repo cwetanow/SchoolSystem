@@ -7,6 +7,12 @@ namespace SchoolSystem.Models
 {
 	public class Teacher : Person
 	{
+		public Teacher()
+			: base(string.Empty, string.Empty)
+		{
+
+		}
+
 
 		public Teacher(string firstName, string lastName, Subject subject)
 			: base(firstName, lastName)

@@ -1,42 +1,47 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using SchoolSystem.Models.Abstractions;
 using SchoolSystem.Models.Enums;
 
 namespace SchoolSystem.Models
 {
-    public class Student : Person
-    {
-        public Student(string firstName, string lastName, Grade grade)
-            : base(firstName, lastName)
-        {
-            this.Grade = grade;
-            this.Marks = new List<Mark>();
-        }
+	public class Student : Person
+	{
+		public Student()
+			: base(string.Empty, string.Empty)
+		{
 
-        public Grade Grade { get; set; }
+		}
 
-        public IList<Mark> Marks { get; private set; }
+		public Student(string firstName, string lastName, Grade grade)
+			: base(firstName, lastName)
+		{
+			this.Grade = grade;
+			this.Marks = new List<Mark>();
+		}
 
-        public string ListMarks()
-        {
-            if (this.Marks.Count == 0)
-            {
-                return "This student has no marks.";
-            }
+		public Grade Grade { get; set; }
 
-            var builder = new StringBuilder();
-            builder.AppendLine("The student has these marks:");
+		public IList<Mark> Marks { get; private set; }
 
-            var marksAsString = this.Marks
-                .Select(m => $"{m.Subject} => {m.Value}")
-                .ToList();
+		public string ListMarks()
+		{
+			if (this.Marks.Count == 0)
+			{
+				return "This student has no marks.";
+			}
 
-            marksAsString.ForEach(m => builder.AppendLine(m));
+			var builder = new StringBuilder();
+			builder.AppendLine("The student has these marks:");
 
-            return builder.ToString();
-        }
-    }
+			var marksAsString = this.Marks
+				.Select(m => $"{m.Subject} => {m.Value}")
+				.ToList();
+
+			marksAsString.ForEach(m => builder.AppendLine(m));
+
+			return builder.ToString();
+		}
+	}
 }
