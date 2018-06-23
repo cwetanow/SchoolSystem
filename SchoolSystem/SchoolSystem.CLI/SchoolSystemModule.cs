@@ -22,6 +22,7 @@ namespace SchoolSystem.CLI
 	public class SchoolSystemModule : NinjectModule
 	{
 		private const string CreateStudentCommandName = "CreateStudent";
+		private const string RemoveStudentCommandName = "RemoveStudent";
 
 		private readonly IConfigurationRoot configuration;
 
@@ -43,6 +44,7 @@ namespace SchoolSystem.CLI
 			   .When(request => true);
 
 			this.Bind<ICommand>().To<CreateStudentCommand>().Named(CreateStudentCommandName);
+			this.Bind<ICommand>().To<RemoveStudentCommand>().Named(RemoveStudentCommandName);
 
 			// Factories
 			this.Bind<ICommandFactory>()
