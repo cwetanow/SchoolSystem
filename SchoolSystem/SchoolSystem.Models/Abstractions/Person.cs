@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace SchoolSystem.Models.Abstractions
 {
-	public abstract class Person
+	public abstract class Person : Entity
 	{
 		private const int MinNameLenght = 2;
 		private const int MaxNameLenght = 31;
@@ -19,8 +19,6 @@ namespace SchoolSystem.Models.Abstractions
 			this.FirstName = firstName;
 			this.LastName = lastName;
 		}
-
-		public int Id { get; set; }
 
 		public string FirstName
 		{

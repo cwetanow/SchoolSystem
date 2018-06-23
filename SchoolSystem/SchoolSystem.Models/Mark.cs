@@ -1,10 +1,11 @@
 ﻿using System;
 
 using SchoolSystem.Models.Enums;
+using SchoolSystem.Models.Abstractions;
 
 namespace SchoolSystem.Models
 {
-	public class Mark
+	public class Mark : Entity
 	{
 		private const float MinValue = 2.00f;
 		private const float MaxValue = 6.00f;
