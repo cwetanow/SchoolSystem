@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Data", "School
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Data.Tests", "SchoolSystem.Data.Tests\SchoolSystem.Data.Tests.csproj", "{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Framework", "SchoolSystem.Framework\SchoolSystem.Framework.csproj", "{06F6E922-DC49-4263-8DD1-1DEBC90D6ACC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Commands", "SchoolSystem.Commands\SchoolSystem.Commands.csproj", "{F84071F0-35C3-4AD7-B83C-0CD3A03282CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Providers", "SchoolSystem.Providers\SchoolSystem.Providers.csproj", "{C95127B4-56EA-4FE7-BBF7-DB97537B2463}"
@@ -39,10 +37,6 @@ Global
 		{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7321FDD3-48FC-483E-A8CE-ED7EAEFE75A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06F6E922-DC49-4263-8DD1-1DEBC90D6ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06F6E922-DC49-4263-8DD1-1DEBC90D6ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06F6E922-DC49-4263-8DD1-1DEBC90D6ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06F6E922-DC49-4263-8DD1-1DEBC90D6ACC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F84071F0-35C3-4AD7-B83C-0CD3A03282CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F84071F0-35C3-4AD7-B83C-0CD3A03282CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F84071F0-35C3-4AD7-B83C-0CD3A03282CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
