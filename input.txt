@@ -1,0 +1,14 @@
+CreateStudent Pesho Petrov 6
+CreateTeacher Gosho Vesheff 2
+TeacherAddMark 1 1 3
+TeacherAddMark 1 1 2
+CreateTeacher Stamat Shop 1
+CreateStudent Gosho Petrov 6
+TeacherAddMark 2 2 5
+TeacherAddMark 2 2 4
+TeacherAddMark 2 1 3
+StudentListMarks 1
+RemoveStudent 1
+StudentListMarks 1
+StudentListMarks 2
+RemoveTeacher 2
