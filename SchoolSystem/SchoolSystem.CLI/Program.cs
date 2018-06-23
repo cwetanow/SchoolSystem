@@ -1,6 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 using Ninject;
+using Ninject.Extensions.Factory;
 using SchoolSystem.Core.Contracts;
+using SchoolSystem.Data;
 using SchoolSystem.Data.Contracts;
 using System.IO;
 
@@ -16,6 +20,7 @@ namespace SchoolSystem.CLI
 				.Build();
 
 			var kernel = new StandardKernel();
+			kernel.Load(new FuncModule());
 			kernel.Load(new SchoolSystemModule(configuration));
 
 			var engine = kernel.Get<IEngine>();
