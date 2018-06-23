@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Ninject;
 using Ninject.Extensions.Factory;
 using SchoolSystem.Core.Contracts;
-using SchoolSystem.Data;
-using SchoolSystem.Data.Contracts;
 using System.IO;
 
 namespace SchoolSystem.CLI
