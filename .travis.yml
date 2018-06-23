@@ -6,6 +6,6 @@ notifications:
   email: false
 
 script:
-  - cd src
+  - cd SchoolSystem
   - dotnet restore
   - dotnet build
