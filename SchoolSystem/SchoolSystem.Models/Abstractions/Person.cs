@@ -20,6 +20,8 @@ namespace SchoolSystem.Models.Abstractions
 			this.LastName = lastName;
 		}
 
+		public int Id { get; set; }
+
 		public string FirstName
 		{
 			get
