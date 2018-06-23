@@ -1,6 +1,7 @@
 ﻿using SchoolSystem.Data.Contracts;
 using SchoolSystem.Models;
 using SchoolSystem.Services.Contracts;
+using System;
 
 namespace SchoolSystem.Services
 {
@@ -25,7 +26,14 @@ namespace SchoolSystem.Services
 
 		public Teacher GetTeacherById(int teacherId)
 		{
-			return this.repository.GetById(teacherId);
+			var teacher = this.repository.GetById(teacherId);
+
+			if (teacher == null)
+			{
+				throw new ArgumentException("The given key was not present in the dictionary.");
+			}
+
+			return teacher;
 		}
 
 		public void RemoveTeacher(int teacherId)
@@ -34,7 +42,7 @@ namespace SchoolSystem.Services
 
 			if (teacher == null)
 			{
-				return;
+				throw new ArgumentException("The given key was not present in the dictionary.");
 			}
 
 			this.repository.Delete(teacher);

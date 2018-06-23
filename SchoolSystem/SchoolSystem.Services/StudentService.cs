@@ -47,6 +47,11 @@ namespace SchoolSystem.Services
 					.Include(s => s.Marks)
 					.FirstOrDefault(s => s.Id == studentId);
 
+			if (student == null)
+			{
+				throw new ArgumentException("The given key was not present in the dictionary.");
+			}
+
 			return student;
 		}
 
@@ -56,7 +61,7 @@ namespace SchoolSystem.Services
 
 			if (student == null)
 			{
-				return;
+				throw new ArgumentException("The given key was not present in the dictionary.");
 			}
 
 			this.repository.Delete(student);
