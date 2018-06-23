@@ -22,5 +22,18 @@ namespace SchoolSystem.Services
 
 			return student.Id;
 		}
+
+		public void RemoveStudent(int studentId)
+		{
+			var student = this.repository.GetById(studentId);
+
+			if (student == null)
+			{
+				return;
+			}
+
+			this.repository.Delete(student);
+			this.unitOfWork.Commit();
+		}
 	}
 }
