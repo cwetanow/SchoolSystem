@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace SchoolSystem.Commands
 {
-	public class RemoveStudentCommand : ICommand
+	public class StudentListMarksCommand : ICommand
 	{
 		private readonly IStudentService service;
 
-		public RemoveStudentCommand(IStudentService service)
+		public StudentListMarksCommand(IStudentService service)
 		{
 			this.service = service ?? throw new ArgumentNullException("service cannot be null");
 		}
@@ -17,10 +17,9 @@ namespace SchoolSystem.Commands
 		public string Execute(IList<string> parameters)
 		{
 			var studentId = int.Parse(parameters[0]);
+			var student = this.service.GetStudentById(studentId);
 
-			this.service.RemoveStudent(studentId);
-
-			return $"Student with ID {studentId} was sucessfully removed.";
+			return student.ListMarks();
 		}
 	}
 }
