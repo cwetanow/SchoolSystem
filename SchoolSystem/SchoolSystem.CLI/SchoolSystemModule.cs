@@ -10,11 +10,19 @@ using SchoolSystem.Commands;
 using Ninject.Extensions.Factory;
 using SchoolSystem.Core.Contracts;
 using SchoolSystem.Core;
+using System.Linq;
+using SchoolSystem.Commands.Contracts;
+using Ninject;
+using SchoolSystem.Factories;
+using SchoolSystem.Services.Contracts;
+using SchoolSystem.Services;
 
 namespace SchoolSystem.CLI
 {
 	public class SchoolSystemModule : NinjectModule
 	{
+		private const string CreateStudentCommandName = "CreateStudent";
+
 		private readonly IConfigurationRoot configuration;
 
 		public SchoolSystemModule(IConfigurationRoot configuration)
@@ -25,9 +33,23 @@ namespace SchoolSystem.CLI
 		public override void Load()
 		{
 			// Commands
+			this.Bind<ICommand>()
+			   .ToMethod(context =>
+			   {
+				   var commandParameterName = (string)context.Parameters.ToList()[0].GetValue(context, context.Request.Target);
+
+				   return context.Kernel.Get<ICommand>(commandParameterName);
+			   })
+			   .When(request => true);
+
+			this.Bind<ICommand>().To<CreateStudentCommand>().Named(CreateStudentCommandName);
 
 			// Factories
 			this.Bind<ICommandFactory>()
+				.ToFactory()
+				.InSingletonScope();
+
+			this.Bind<IStudentFactory>()
 				.ToFactory()
 				.InSingletonScope();
 
@@ -56,6 +78,11 @@ namespace SchoolSystem.CLI
 
 			this.Bind<IUnitOfWork>()
 				.To<UnitOfWork>()
+				.InThreadScope();
+
+			// Services
+			this.Bind<IStudentService>()
+				.To<StudentService>()
 				.InThreadScope();
 
 			// Core

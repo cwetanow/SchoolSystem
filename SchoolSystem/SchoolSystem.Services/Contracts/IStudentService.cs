@@ -1,6 +1,9 @@
-﻿namespace SchoolSystem.Services.Contracts
+﻿using SchoolSystem.Models;
+
+namespace SchoolSystem.Services.Contracts
 {
 	public interface IStudentService
 	{
+		int AddStudent(Student student);
 	}
 }

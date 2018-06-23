@@ -45,7 +45,16 @@ namespace SchoolSystem.Core
 
 		private void ProcessCommand(string commandAsString)
 		{
+			if (string.IsNullOrWhiteSpace(commandAsString))
+			{
+				throw new ArgumentNullException("Command cannot be null or empty.");
+			}
 
+			var command = this.parser.ParseCommand(commandAsString);
+			var parameters = this.parser.ParseParameters(commandAsString);
+
+			var executionResult = command.Execute(parameters);
+			this.writer.WriteLine(executionResult);
 		}
 	}
 }

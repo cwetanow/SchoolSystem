@@ -10,3 +10,5 @@ script:
   - dotnet restore
   - dotnet build
   - dotnet test SchoolSystem.Data.Tests/
+  - dotnet test SchoolSystem.Services.Tests/
+  - dotnet test SchoolSystem.Commands.Tests/

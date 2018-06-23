@@ -1,10 +1,9 @@
-﻿using SchoolSystem.Models.Contracts;
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 
 namespace SchoolSystem.Models.Abstractions
 {
-	public abstract class Person : IPerson
+	public abstract class Person : Entity
 	{
 		private const int MinNameLenght = 2;
 		private const int MaxNameLenght = 31;
