@@ -1,6 +1,8 @@
-﻿using SchoolSystem.Data.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using SchoolSystem.Data.Contracts;
 using SchoolSystem.Models;
 using SchoolSystem.Services.Contracts;
+using System.Linq;
 
 namespace SchoolSystem.Services
 {
@@ -21,6 +23,15 @@ namespace SchoolSystem.Services
 			this.unitOfWork.Commit();
 
 			return student.Id;
+		}
+
+		public Student GetStudentById(int studentId)
+		{
+			var student = this.repository.All
+					.Include(s => s.Marks)
+					.FirstOrDefault(s => s.Id == studentId);
+
+			return student;
 		}
 
 		public void RemoveStudent(int studentId)
